@@ -1,5 +1,5 @@
 [TS]
-FOLDER=/home/fh/voice/TS3
+FOLDER=/home/teamspeak/server
 
 [UPDATE]
 JSON_URL=https://www.teamspeak.com/versions/server.json
