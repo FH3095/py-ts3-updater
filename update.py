@@ -25,7 +25,7 @@ def downloadFileFromAnyMirror(mirrors, expectedChecksum):
 					sha256.update(fileBytes)
 				actualChecksum = sha256.hexdigest().lower()
 				if expectedChecksum.lower() != actualChecksum:
-					raise RuntimeError("Expected checksum " + expectedChecksum + " doesnt match actual checksum "+actualChecksum)
+					raise RuntimeError("Expected checksum " + expectedChecksum + " doesnt match actual checksum " + actualChecksum)
 				else:
 					print("Download successfull and verified")
 					return tempFilePath
@@ -75,7 +75,7 @@ ts3UpdateInProgressFile.write_text("yes\n")
 try:
 	subprocess.run([str(ts3ServerScript), "stop"], capture_output=True, text=True, check=True)
 	mirrors = (list(json["mirrors"].values()))
-	#random.shuffle(mirrors)
+	random.shuffle(mirrors)
 	tempFilePath = downloadFileFromAnyMirror(mirrors, json["checksum"])
 	try:
 		if '.tar' not in tempFilePath.name:
