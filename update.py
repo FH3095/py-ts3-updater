@@ -74,7 +74,7 @@ ts3UpdateInProgressFile.write_text("yes\n")
 
 try:
 	subprocess.run([str(ts3ServerScript), "stop"], capture_output=True, text=True, check=True)
-	mirrors = (list(json["mirrors"].values()))
+	mirrors = list(json["mirrors"].values())
 	random.shuffle(mirrors)
 	tempFilePath = downloadFileFromAnyMirror(mirrors, json["checksum"])
 	try:
