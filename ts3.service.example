@@ -1,0 +1,19 @@
+[Unit]
+Description=TS3 server
+After=mariadb.service
+ConditionPathExists=!/home/teamspeak/server/ts3update_in_progress.txt
+
+[Service]
+User=teamspeak
+Group=teamspeak
+Type=forking
+WorkingDirectory=/home/teamspeak/server
+ExecStart=/home/teamspeak/server/ts3server_startscript.sh start inifile=ts3server.ini
+ExecStop=/home/teamspeak/server/ts3server_startscript.sh stop
+PIDFile=/home/teamspeak/server/ts3server.pid
+Restart=always
+RestartSec=5s
+
+
+[Install]
+WantedBy=multi-user.target

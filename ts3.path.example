@@ -1,0 +1,8 @@
+[Unit]
+Description=TS3 update restart
+
+[Path]
+PathModified=/home/teamspeak/server/ts3update_in_progress.txt
+
+[Install]
+WantedBy=multi-user.target
